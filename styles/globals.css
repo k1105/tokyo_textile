@@ -9,10 +9,21 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  line-height: 1.6rem;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  line-height: 1.6rem;
+}
+
+h1 {
+  margin-bottom: 30px;
 }
 
 @media (prefers-color-scheme: dark) {
