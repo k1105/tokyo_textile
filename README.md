@@ -4,16 +4,6 @@ Kanata Yamagishi | 山岸 奏大
 
 ### Abstruct
 
-What has the shared cycle made possible?
-
-I attempted to visualize the changes in mobility brought about by shared bicycles, as well as changes in people's perceptions of urban space, by comparing trains, the main means of transportation in Tokyo, and shared bicycles.
-
-When people travel from station to station by train, their travel routes are constrained by the train line. People cannot connect between stations as they wish, and this often results in distorted perceptions of space, such as feeling as if a place is far away even though it is spatially close, or feeling as if it is a completely different space if the station where you get off the train is different.
-
-On the other hand, the bicycle can be freely connected to the shared bike stations via a myriad of routes, as long as there are roads available. The network of these myriad paths constitutes one huge "surface. This is different from the "linear" network constructed by train line. People who have access to such a network may have acquired a "land" of some extent, rather than the conventional fragmented space centered on a station.
-
-This work visualizes a network connecting mobile neighborhood stations based on the linear distance between shared cycle stations. I want the viewer to sense the difference from train travel through the gradually knitted network.
-
 シェアサイクルは何を可能にしたのだろうか。
 
 私は、東京都内の主要な移動手段である電車とシェアサイクルを比較した上で、シェアサイクルがもたらす移動の変化、ならびに都市空間に対する人々の認識の変化を可視化することを試みた。
@@ -24,11 +14,21 @@ This work visualizes a network connecting mobile neighborhood stations based on 
 
 本作品は、シェアサイクルのステーション間の直線距離に基づいて、移動可能な近隣のステーションを結ぶネットワークを可視化している。徐々に編み込まれていくネットワークに、電車移動との違いを感じ取ってもらいたい。
 
+What has the shared cycle made possible?
+
+I attempted to visualize the changes in mobility brought about by shared bicycles, as well as changes in people's perceptions of urban space, by comparing trains, the main means of transportation in Tokyo, and shared bicycles.
+
+When people travel from station to station by train, their travel routes are constrained by the train line. People cannot connect between stations as they wish, and this often results in distorted perceptions of space, such as feeling as if a place is far away even though it is spatially close, or feeling as if it is a completely different space if the station where you get off the train is different.
+
+On the other hand, the bicycle can be freely connected to the shared bike stations via a myriad of routes, as long as there are roads available. The network of these myriad paths constitutes one huge "surface. This is different from the "linear" network constructed by train line. People who have access to such a network may have acquired a "land" of some extent, rather than the conventional fragmented space centered on a station.
+
+This work visualizes a network connecting mobile neighborhood stations based on the linear distance between shared cycle stations. I want the viewer to sense the difference from train travel through the gradually knitted network.
+
 ### Data Source
 
 本作品で使用したオープンデータは以下。
 
-1. ドコモ・バイクシェア バイクシェア関連情報(GBFS 形式) / Bikeshare information (GBFS format) of DOCOMO BIKESHARE, INC.
+1. ドコモ・バイクシェア バイクシェア関連情報(GBFS 形式) / Bikeshare information (GBFS format) of DOCOMO BIKESHARE, INC. licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
    [https://ckan.odpt.org/dataset/c_bikeshare_gbfs-d-bikeshare/resource/4412364a-2893-4304-9644-d6d0329f0d40?inner_span=True](https://ckan.odpt.org/dataset/c_bikeshare_gbfs-d-bikeshare/resource/4412364a-2893-4304-9644-d6d0329f0d40?inner_span=True)
 
 2. 東京都の駅-路線の最新リストデータ 鉄道 | オープンポータル
@@ -36,3 +36,5 @@ This work visualizes a network connecting mobile neighborhood stations based on 
 
 データの加工のために以下のスクリプトを作成した.
 [https://colab.research.google.com/drive/1GEP3RDCWGKOBZdxKdwOezwaHneDf2fAc?usp=sharing](https://colab.research.google.com/drive/1GEP3RDCWGKOBZdxKdwOezwaHneDf2fAc?usp=sharing)
+
+この作品は[Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)のもと公開しています。 本作品の文章、ソースコード、画像等は適切なクレジット表記のもと商用出版含めご自由に利用ください。
