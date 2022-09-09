@@ -34,7 +34,7 @@ This work visualizes a network connecting mobile neighborhood stations based on 
 2. 東京都の駅-路線の最新リストデータ 鉄道 | オープンポータル
    [https://opendata-web.site/station/13/eki/](https://opendata-web.site/station/13/eki/)
 
-データの加工のために以下のスクリプトを作成した.
+データの加工のために以下のスクリプトを作成した。
 [https://colab.research.google.com/drive/1GEP3RDCWGKOBZdxKdwOezwaHneDf2fAc?usp=sharing](https://colab.research.google.com/drive/1GEP3RDCWGKOBZdxKdwOezwaHneDf2fAc?usp=sharing)
 
 ---
