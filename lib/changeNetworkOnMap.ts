@@ -33,7 +33,10 @@ export default function changeNetworkOnMap(map: mapboxgl.Map, meter: number) {
   console.log(index);
 
   if (typeof map.getSource("bike-line") !== "undefined") {
-    map.getSource("bike-line").setData({
+    const source: mapboxgl.GeoJSONSource = map.getSource(
+      "bike-line"
+    ) as mapboxgl.GeoJSONSource;
+    source.setData({
       type: "Feature",
       properties: {},
       geometry: {
