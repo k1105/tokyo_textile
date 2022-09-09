@@ -37,4 +37,6 @@ This work visualizes a network connecting mobile neighborhood stations based on 
 データの加工のために以下のスクリプトを作成した.
 [https://colab.research.google.com/drive/1GEP3RDCWGKOBZdxKdwOezwaHneDf2fAc?usp=sharing](https://colab.research.google.com/drive/1GEP3RDCWGKOBZdxKdwOezwaHneDf2fAc?usp=sharing)
 
+---
+
 この作品は[Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)のもと公開しています。 本作品の文章、ソースコード、画像等は適切なクレジット表記のもと商用出版含めご自由に利用ください。
