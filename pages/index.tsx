@@ -78,7 +78,7 @@ const Home: NextPage = () => {
         <div
           className="map-container"
           ref={mapContainer}
-          style={{ width: "100vw", height: "100vh", background: "#023F80" }}
+          style={{ width: "100vw", height: "100vh", background: "#343332" }}
         />
         <div
           style={{
