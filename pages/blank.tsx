@@ -4,11 +4,10 @@ import { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import addDataOnMap from "../lib/addDataOnMap";
-import LargeRadio from "../components/largeRadio";
-import SmallRadio from "../components/smallRadio";
 import changeNetworkOnMap from "../lib/changeNetworkOnMap";
 import Link from "next/link";
 import LayerRadio from "../components/layerRadio";
+import PitchController from "../components/pitchController";
 
 type Center = {
   lat: number;
@@ -93,28 +92,7 @@ const Blank: NextPage = () => {
           <p>Zoom: {Math.round(zoom * 100) / 100}</p>
           <p>Latitude: {Math.round(center.lat * 10000) / 10000}</p>
           <p>Longitude: {Math.round(center.lon * 10000) / 10000}</p>
-          <p style={{ marginTop: "30px" }}>Pitch</p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "200px",
-              margin: "0 auto",
-              marginBottom: "15px",
-            }}
-          >
-            <a onClick={() => setPitch(0)} style={{ margin: "0 15px" }}>
-              0°
-            </a>
-            <p>|</p>
-            <p onClick={() => setPitch(45)}>
-              <a style={{ margin: "0 15px" }}>45°</a>
-            </p>
-            <p>|</p>
-            <p onClick={() => setPitch(70)}>
-              <a style={{ margin: "0 15px" }}>70°</a>
-            </p>
-          </div>
+          <PitchController pitch={pitch} setPitch={setPitch} />
           <p style={{ marginTop: "15px" }}>Map Style</p>
           <div
             style={{
