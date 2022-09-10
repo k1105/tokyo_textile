@@ -22,13 +22,17 @@ const Blank: NextPage = () => {
   const [zoom, setZoom] = useState<number>(0);
   const [center, setCenter] = useState<Center>({ lat: 0, lon: 0 });
   const [pitch, setPitch] = useState<number>(0);
+  const bounds: mapboxgl.LngLatBounds = [
+    [139.0434, 35.4133],
+    [140.0264, 35.8606],
+  ];
 
   useEffect(() => {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/kn5mr/cl7r6inmt000w15od1r175qgk", //custom style: "mapbox://styles/kn5mr/cl7r6inmt000w15od1r175qgk", dark style: "mapbox://styles/mapbox/dark-v10"
       center: [139.7567, 35.6841], // center map on Chad
-      zoom: 12,
+      maxBounds: bounds,
     });
 
     map.current.on("load", () => {
