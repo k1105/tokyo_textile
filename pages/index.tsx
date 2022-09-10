@@ -4,10 +4,10 @@ import { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import addDataOnMap from "../lib/addDataOnMap";
-import LargeRadio from "../components/largeRadio";
-import SmallRadio from "../components/smallRadio";
 import changeNetworkOnMap from "../lib/changeNetworkOnMap";
 import Link from "next/link";
+import LayerRadio from "../components/layerRadio";
+import PitchController from "../components/pitchController";
 
 type Center = {
   lat: number;
@@ -84,7 +84,7 @@ const Home: NextPage = () => {
           style={{
             position: "absolute",
             color: "white",
-            left: "50px",
+            left: "30px",
             top: "30px",
           }}
         >
@@ -92,28 +92,7 @@ const Home: NextPage = () => {
           <p>Zoom: {Math.round(zoom * 100) / 100}</p>
           <p>Latitude: {Math.round(center.lat * 10000) / 10000}</p>
           <p>Longitude: {Math.round(center.lon * 10000) / 10000}</p>
-          <p style={{ marginTop: "30px" }}>Pitch</p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "200px",
-              margin: "0 auto",
-              marginBottom: "15px",
-            }}
-          >
-            <a onClick={() => setPitch(0)} style={{ margin: "0 15px" }}>
-              0°
-            </a>
-            <p>|</p>
-            <p onClick={() => setPitch(45)}>
-              <a style={{ margin: "0 15px" }}>45°</a>
-            </p>
-            <p>|</p>
-            <p onClick={() => setPitch(70)}>
-              <a style={{ margin: "0 15px" }}>70°</a>
-            </p>
-          </div>
+          <PitchController pitch={pitch} setPitch={setPitch} />
           <p style={{ marginTop: "15px" }}>Map Style</p>
           <div
             style={{
@@ -138,91 +117,7 @@ const Home: NextPage = () => {
             </p>
           </div>
         </div>
-        <div
-          style={{
-            position: "absolute",
-            color: "white",
-            left: "0px",
-            bottom: "30px",
-            width: "100vw",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "300px",
-              margin: "0 auto",
-            }}
-          >
-            <LargeRadio
-              txt="0"
-              value="0"
-              onclick={() => setMeter(0)}
-              currentValue={meter}
-            />
-            <SmallRadio
-              txt="500"
-              value="500"
-              onclick={() => setMeter(500)}
-              currentValue={meter}
-            />
-            <LargeRadio
-              txt="1km"
-              value="1000"
-              onclick={() => setMeter(1000)}
-              currentValue={meter}
-            />
-            <SmallRadio
-              txt="1500"
-              value="1500"
-              onclick={() => setMeter(1500)}
-              currentValue={meter}
-            />
-            <LargeRadio
-              txt="2km"
-              value="2000"
-              onclick={() => setMeter(2000)}
-              currentValue={meter}
-            />
-            <SmallRadio
-              txt="2500"
-              value="2500"
-              onclick={() => setMeter(2500)}
-              currentValue={meter}
-            />
-            <LargeRadio
-              txt="3km"
-              value="3000"
-              onclick={() => setMeter(3000)}
-              currentValue={meter}
-            />
-            <SmallRadio
-              txt="3500"
-              value="3500"
-              onclick={() => setMeter(3500)}
-              currentValue={meter}
-            />
-            <LargeRadio
-              txt="4km"
-              value="4000"
-              onclick={() => setMeter(4000)}
-              currentValue={meter}
-            />
-            <SmallRadio
-              txt="4500"
-              value="4500"
-              onclick={() => setMeter(4500)}
-              currentValue={meter}
-            />
-            <LargeRadio
-              txt="5km"
-              value="5000"
-              onclick={() => setMeter(5000)}
-              currentValue={meter}
-            />
-          </div>
-        </div>
+        <LayerRadio meter={meter} setMeter={setMeter} />
       </main>
     </div>
   );
