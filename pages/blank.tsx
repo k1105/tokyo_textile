@@ -26,12 +26,13 @@ const Blank: NextPage = () => {
     [139.0434, 35.4133],
     [140.0264, 35.8606],
   ];
-
   useEffect(() => {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/kn5mr/cl7r6inmt000w15od1r175qgk", //custom style: "mapbox://styles/kn5mr/cl7r6inmt000w15od1r175qgk", dark style: "mapbox://styles/mapbox/dark-v10"
+      style: "mapbox://styles/kn5mr/cl7r6inmt000w15od1r175qgk",
       center: [139.7567, 35.6841], // center map on Chad
+      zoom: 12,
+      minZoom: 10,
       maxBounds: bounds,
     });
 
@@ -92,7 +93,6 @@ const Blank: NextPage = () => {
             top: "30px",
           }}
         >
-          <h1>Tokyo Textile</h1>
           <p>Zoom: {Math.round(zoom * 100) / 100}</p>
           <p>Latitude: {Math.round(center.lat * 10000) / 10000}</p>
           <p>Longitude: {Math.round(center.lon * 10000) / 10000}</p>

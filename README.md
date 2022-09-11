@@ -2,7 +2,7 @@
 
 Kanata Yamagishi | 山岸 奏大
 
-### Abstruct
+### Abstract
 
 シェアサイクルは何を可能にしたのだろうか。
 
