@@ -184,7 +184,8 @@ export default function addDataOnMap(map: mapboxgl.Map) {
 
   setInterval(() => {
     index++;
-    map.getSource("centered-lines").setData({
+    const source = map.getSource("centered-lines") as mapboxgl.GeoJSONSource;
+    source.setData({
       type: "Feature",
       properties: {},
       geometry: {
