@@ -12,6 +12,8 @@ import meter3500 from "../public/data/network/meter3500";
 import meter4000 from "../public/data/network/meter4000";
 import meter4500 from "../public/data/network/meter4500";
 import meter5000 from "../public/data/network/meter5000";
+import centeredLines from "../public/data/centeredLines";
+import selectedLines from "../public/data/selectedLines";
 
 export default function addDataOnMap(map: mapboxgl.Map) {
   // Add the vector tileset as a source.
@@ -98,6 +100,33 @@ export default function addDataOnMap(map: mapboxgl.Map) {
     },
   });
 
+  map.addSource("centered-lines", {
+    type: "geojson",
+    data: {
+      type: "Feature",
+      properties: {},
+      geometry: {
+        type: "MultiLineString",
+        coordinates: selectedLines(0),
+      },
+    },
+  });
+
+  map.addLayer({
+    id: "centered-lines",
+    type: "line",
+    source: "centered-lines",
+    layout: {
+      "line-join": "round",
+      "line-cap": "round",
+    },
+    paint: {
+      "line-color": "#fff", //f5a7aa
+      "line-width": 1,
+      "line-opacity": 1,
+    },
+  });
+
   map.addLayer({
     id: "bike-station",
     type: "circle",
@@ -150,4 +179,18 @@ export default function addDataOnMap(map: mapboxgl.Map) {
       "line-opacity": 0.3,
     },
   });
+
+  let index = 0;
+
+  setInterval(() => {
+    index++;
+    map.getSource("centered-lines").setData({
+      type: "Feature",
+      properties: {},
+      geometry: {
+        type: "MultiLineString",
+        coordinates: selectedLines(index),
+      },
+    });
+  }, 100);
 }
