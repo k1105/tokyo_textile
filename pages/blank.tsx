@@ -8,6 +8,8 @@ import changeNetworkOnMap from "../lib/changeNetworkOnMap";
 import Link from "next/link";
 import LayerRadio from "../components/layerRadio";
 import PitchController from "../components/pitchController";
+import MapInformation from "../components/mapInformation";
+import AboutLink from "../components/aboutLink";
 
 type Center = {
   lat: number;
@@ -20,8 +22,9 @@ const Blank: NextPage = () => {
   mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_GL_ACCESS_TOKEN ?? "";
   const [meter, setMeter] = useState<number>(0);
   const [zoom, setZoom] = useState<number>(0);
-  const [center, setCenter] = useState<Center>({ lat: 0, lon: 0 });
+  const [center, setCenter] = useState<Center>({ lat: 35.6841, lon: 139.7567 });
   const [pitch, setPitch] = useState<number>(0);
+  const [buttonControlledPitch, setButtonControlledPitch] = useState<number>(0);
 
   useEffect(() => {
     const bounds: mapboxgl.LngLatBoundsLike = [
@@ -31,7 +34,7 @@ const Blank: NextPage = () => {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/kn5mr/cl7r6inmt000w15od1r175qgk",
-      center: [139.7567, 35.6841], // center map on Chad
+      center: [center.lon, center.lat], // center map on Chad
       zoom: 12,
       minZoom: 10,
       maxBounds: bounds,
@@ -55,6 +58,7 @@ const Blank: NextPage = () => {
         lat: map.current.getCenter()["lat"],
         lon: map.current.getCenter()["lng"],
       });
+      setPitch(map.current.getPitch());
     });
   }, []);
 
@@ -66,14 +70,14 @@ const Blank: NextPage = () => {
 
   useEffect(() => {
     if (typeof map.current === "object") {
-      map.current.setPitch(pitch);
+      map.current.setPitch(buttonControlledPitch);
     }
-  }, [pitch]);
+  }, [buttonControlledPitch]);
 
   return (
     <div>
       <Head>
-        <title>Data Visualize Bikeshare Information</title>
+        <title>Tokyo Textile</title>
         <meta
           name="description"
           content="This page visualize bike share information via Public Transportation Open Data Center."
@@ -94,10 +98,11 @@ const Blank: NextPage = () => {
             top: "30px",
           }}
         >
-          <p>Zoom: {Math.round(zoom * 100) / 100}</p>
-          <p>Latitude: {Math.round(center.lat * 10000) / 10000}</p>
-          <p>Longitude: {Math.round(center.lon * 10000) / 10000}</p>
-          <PitchController pitch={pitch} setPitch={setPitch} />
+          <MapInformation center={center} zoom={zoom} />
+          <PitchController
+            pitch={pitch}
+            setButtonControlledPitch={setButtonControlledPitch}
+          />
           <p style={{ marginTop: "15px" }}>Map Style</p>
           <div
             style={{
@@ -122,6 +127,7 @@ const Blank: NextPage = () => {
             </Link>
           </div>
         </div>
+        <AboutLink />
         <LayerRadio meter={meter} setMeter={setMeter} />
       </main>
     </div>

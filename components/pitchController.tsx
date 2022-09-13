@@ -2,13 +2,18 @@ import React from "react";
 
 type Props = {
   pitch: number;
-  setPitch: (angle: number) => void;
+  setButtonControlledPitch: (angle: number) => void;
 };
 
-export default function PitchController({ pitch, setPitch }: Props) {
+export default function PitchController({
+  pitch,
+  setButtonControlledPitch,
+}: Props) {
   return (
     <div>
-      <p style={{ marginTop: "30px" }}>Pitch</p>
+      <p style={{ marginTop: "30px" }}>
+        Pitch: {Math.round(pitch * 100) / 100}
+      </p>
       <div
         style={{
           display: "flex",
@@ -19,7 +24,7 @@ export default function PitchController({ pitch, setPitch }: Props) {
         }}
       >
         <a
-          onClick={() => setPitch(0)}
+          onClick={() => setButtonControlledPitch(0)}
           style={{
             margin: "0 15px",
             textDecoration: pitch === 0 ? "line-through" : "none",
@@ -28,7 +33,7 @@ export default function PitchController({ pitch, setPitch }: Props) {
           0°
         </a>
         <p>|</p>
-        <p onClick={() => setPitch(45)}>
+        <p onClick={() => setButtonControlledPitch(45)}>
           <a
             style={{
               margin: "0 15px",
@@ -39,7 +44,7 @@ export default function PitchController({ pitch, setPitch }: Props) {
           </a>
         </p>
         <p>|</p>
-        <p onClick={() => setPitch(70)}>
+        <p onClick={() => setButtonControlledPitch(70)}>
           <a
             style={{
               margin: "0 15px",

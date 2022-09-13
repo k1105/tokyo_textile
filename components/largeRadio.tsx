@@ -29,6 +29,7 @@ export default function LargeRadio({
         onClick={() => {
           onclick();
         }}
+        readOnly
       />
       <br />
       <label htmlFor={txt} style={{ lineHeight: "1.6rem" }}>

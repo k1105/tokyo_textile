@@ -25,12 +25,12 @@ export default function SmallRadio({
       <input
         type="radio"
         id={txt}
-        name="fav_language"
         value={value}
         checked={value === `${currentValue}`}
         onClick={() => {
           onclick();
         }}
+        readOnly
       />
     </div>
   );
