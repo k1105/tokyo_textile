@@ -48,6 +48,7 @@ const Home: NextPage = () => {
         lat: map.current.getCenter()["lat"],
         lon: map.current.getCenter()["lng"],
       });
+      setMeter(2000);
     });
 
     map.current.on("zoom", () => {
