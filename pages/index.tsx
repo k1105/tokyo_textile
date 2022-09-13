@@ -71,7 +71,12 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (typeof map.current === "object") {
-      map.current.setPitch(buttonControlledPitch);
+      map.current.flyTo({
+        pitch: buttonControlledPitch,
+        duration: 1000, // Animate over 12 seconds
+        essential: true, // This animation is considered essential with
+        //respect to prefers-reduced-motion
+      });
     }
   }, [buttonControlledPitch]);
 
