@@ -175,7 +175,7 @@ const About: NextPage = () => {
         <style jsx>{`
           main {
             color: #ddd;
-            background: #242322;
+
             padding-bottom: 50px;
             padding-top: 50px;
           }
